@@ -3,8 +3,22 @@
 
 format: jb-book
 root: intro
-chapters:
-- file: markdown
-- file: notebooks
-- file: markdown-notebooks
-- file: text_classification_rnn
+parts:
+# - caption: 快速开始
+#   chapters:
+  # - file: start/your-first-nlp-task.ipynb
+
+- caption: 数据
+  chapters: 
+  # - file: data/
+  - file: notebooks
+  - file: markdown-notebooks
+  # - file: text_classification_rnn
+
+# - caption: 文本表示
+#   chapters:
+#   - file: start/your-first-nlp-task.ipynb
+
+- caption: 文本处理模型
+  chapters:
+  - file: text-model/text_classification_rnn
