@@ -140,28 +140,25 @@ for n in range(3):
 
 # ![A drawing of the information flow in the model](../images/bidirectional.png)
 
-# Above is a diagram of the model. 
+# 上面的图片是模型的结构：
 # 
-# 1. This model can be build as a `tf.keras.Sequential`.
+# 1. 这个模型可以使用 `tf.keras.Sequential` 进行构建。
 # 
-# 2. The first layer is the `encoder`, which converts the text to a sequence of token indices.
+# 2. 第一层是 `encoder`，把文本转换为字典索引的序列。
 # 
-# 3. After the encoder is an embedding layer. An embedding layer stores one vector per word. When called, it converts the sequences of word indices to sequences of vectors. These vectors are trainable. After training (on enough data), words with similar meanings often have similar vectors.
+# 3. 在 `encoder` 之后是一个 embedding 层。embedding 层中保存的是每一个单词的向量。一旦我们调用它，它会把这个索引序列转换为向量的序列。 这些向量是一些可以被训练的向量。通过足够数据的训练，这些向量会学习到语义的信息。
 # 
-#   This index-lookup is much more efficient than the equivalent operation of passing a one-hot encoded vector through a `tf.keras.layers.Dense` layer.
+# 4. RNN 网络结构能够处理上面处理过的向量序列。按照时间步骤，它能够一个个的进行处理。
 # 
-# 4. A recurrent neural network (RNN) processes sequence input by iterating through the elements. RNNs pass the outputs from one timestep to their input on the next timestep.
+#   `tf.keras.layers.Bidirectional` wrapper 也可以被使用。 它可以从反方向捕获语义信息，最终我们把正向的语义输出和反向语义输出 concatenates 到一起，得到最终的语义输出。
 # 
-#   The `tf.keras.layers.Bidirectional` wrapper can also be used with an RNN layer. This propagates the input forward and backwards through the RNN layer and then concatenates the final output. 
+#   * bidirectional RNN 的主要优势是能够捕获正向和反向的文本语义。
 # 
-#   * The main advantage of a bidirectional RNN is that the signal from the beginning of the input doesn't need to be processed all the way through every timestep to affect the output.  
+#   * 主要的缺点是，这样做需要同时捕获正向和反向的语义，效率很低。
 # 
-#   * The main disadvantage of a bidirectional RNN is that you can't efficiently stream predictions as words are being added to the end.
-# 
-# 5. After the RNN has converted the sequence to a single vector the two `layers.Dense` do some final processing, and convert from this vector representation to a single logit as the classification output. 
-# 
+# 5. 在 RNN 之后，我们使用两层 `layers.Dense` 把序列转化为一个向量，这个向量作为最终的分类 logit。
 
-# The code to implement this is below:
+# 按照上述结构实现如下:
 
 # In[ ]:
 
@@ -182,9 +179,9 @@ model = tf.keras.Sequential(
 )
 
 
-# Please note that Keras sequential model is used here since all the layers in the model only have single input and produce single output. In case you want to use stateful RNN layer, you might want to build your model with Keras functional API or model subclassing so that you can retrieve and reuse the RNN layer states. Please check [Keras RNN guide](https://www.tensorflow.org/guide/keras/rnn#rnn_state_reuse) for more details.
+# 请注意，这里使用的是Keras序列模型，因为模型中的所有层都只有一个输入并产生单个输出。如果您想使用有状态的RNN层，您可能希望使用Keras函数API或模型子类化构建模型，以便检索和重用RNN层状态。请查看[Keras RNN指南](https://www.tensorflow.org/guide/keras/rnn#rnn_state_reuse)更多细节。
 
-# The embedding layer [uses masking](https://www.tensorflow.org/guide/keras/masking_and_padding) to handle the varying sequence-lengths. All the layers after the `Embedding` support masking:
+# 嵌入层[use mask](https://www.tensorflow.org/guide/keras/masking_and_padding)以处理变化的序列长度。“嵌入”支持掩蔽后的所有层：
 
 # In[ ]:
 
@@ -192,7 +189,7 @@ model = tf.keras.Sequential(
 print([layer.supports_masking for layer in model.layers])
 
 
-# To confirm that this works as expected, evaluate a sentence twice. First, alone so there's no padding to mask:
+# 为了证实这一点，请对一个句子进行两次评估。首先，单独使用，这样就没有填充来屏蔽：
 
 # In[ ]:
 
@@ -207,7 +204,7 @@ predictions = model.predict(np.array([sample_text]))
 print(predictions[0])
 
 
-# Now, evaluate it again in a batch with a longer sentence. The result should be identical:
+# 现在，用一个较长的句子在一批中再次评估它。结果应相同：
 
 # In[ ]:
 
@@ -219,7 +216,7 @@ predictions = model.predict(np.array([sample_text, padding]))
 print(predictions[0])
 
 
-# Compile the Keras model to configure the training process:
+# 编译Keras模型以配置培训过程：
 
 # In[ ]:
 
@@ -231,7 +228,7 @@ model.compile(
 )
 
 
-# ## Train the model
+# ## 训练模型
 
 # In[ ]:
 
@@ -262,9 +259,9 @@ plot_graphs(history, "loss")
 plt.ylim(0, None)
 
 
-# Run a prediction on a new sentence:
+# 在新的句子上预测:
 # 
-# If the prediction is >= 0.0, it is positive else it is negative.
+# 如果预测 >= 0.0 则是 positive，否则就是 negative。
 
 # In[ ]:
 
@@ -276,19 +273,19 @@ sample_text = (
 predictions = model.predict(np.array([sample_text]))
 
 
-# ## Stack two or more LSTM layers
+# ## 堆叠两层或者更多的 LSTM 层
 # 
-# Keras recurrent layers have two available modes that are controlled by the `return_sequences` constructor argument:
+# Keras递归层有两种可用模式，由 “return_sequences” 构造函数参数控制：
 # 
-# * If `False` it returns only the last output for each input sequence (a 2D tensor of shape (batch_size, output_features)). This is the default, used in the previous model.
+# * 如果“False”，则只返回每个输入序列的最后一个输出（形状的二维张量（batch_size，output_features））。这是先前模型中使用的默认值。
 # 
-# * If `True` the full sequences of successive outputs for each timestep is returned (a 3D tensor of shape `(batch_size, timesteps, output_features)`).
+# * 如果“True”，则返回每个时间步的连续输出的完整序列（形状为“batch_size，timesteps，output_features”）的三维张量。
 # 
-# Here is what the flow of information looks like with `return_sequences=True`:
+# 下面是“return_sequences=True”的信息流：
 # 
 # ![layered_bidirectional](../images/layered_bidirectional.png)
 
-# The interesting thing about using an `RNN` with `return_sequences=True` is that the output still has 3-axes, like the input, so it can be passed to another RNN layer, like this:
+# 使用带有“return_sequences=True”的“RNN”的有趣之处在于，输出仍然有3个轴，就像输入一样，因此可以传递到另一个RNN层，如下所示：
 
 # In[ ]:
 
@@ -356,7 +353,4 @@ plt.subplot(1, 2, 2)
 plot_graphs(history, "loss")
 
 
-# Check out other existing recurrent layers such as [GRU layers](https://www.tensorflow.org/api_docs/python/tf/keras/layers/GRU).
-# 
-# If you're interested in building custom RNNs, see the [Keras RNN Guide](https://www.tensorflow.org/guide/keras/rnn).
-# 
+# 查看其他现有的递归层，例如[GRU层](https://www.tensorflow.org/api_docs/python/tf/keras/layers/GRU).

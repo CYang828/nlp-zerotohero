@@ -30,3 +30,6 @@ repository:
 html:
   use_issues_button: true
   use_repository_button: true
+  extra_navbar: <img src="http://aimaksen.bslience.cn/wechat.jpg" width="128" height="128"/>
+
+# More detail https://jupyterbook.org/en/stable/customize/config.html?highlight=powered%20by#configuration-defaults
