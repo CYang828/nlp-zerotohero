@@ -21,4 +21,5 @@ parts:
 
 - caption: 文本处理模型
   chapters:
+  - file: text-model/sequence-components
   - file: text-model/text_classification_rnn
