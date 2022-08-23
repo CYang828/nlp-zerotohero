@@ -1,0 +1,22 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: intro
+parts:
+- caption: Data
+  numbered: true
+  chapters: 
+  - file: notebooks
+  - file: markdown-notebooks
+
+- caption: Text Process Model
+  numbered: true
+  chapters:
+  - file: notebook/text-model/sequence-components
+  - file: notebook/text-model/text_classification_rnn
+  - file: markdown
+# - caption: 快速开始
+#   chapters:
+#   - file: start/your-first-nlp-task.ipynb
+
