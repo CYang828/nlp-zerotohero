@@ -4,19 +4,30 @@
 format: jb-book
 root: intro
 parts:
-- caption: Data
+- caption: 学徒
   numbered: true
   chapters: 
-  - file: notebooks
-  - file: markdown-notebooks
-
-- caption: Text Process Model
+  - file: notebook/trainee/first-pipeline
+  - file: notebook/trainee/stopword
+  
+- caption: 助理
   numbered: true
-  chapters:
-  - file: notebook/text-model/sequence-components
-  - file: notebook/text-model/text_classification_rnn
-  - file: markdown
-# - caption: 快速开始
-#   chapters:
-#   - file: start/your-first-nlp-task.ipynb
+  chapters: 
+  - file: notebook/assistant/sequence-components
+  - file: notebook/assistant/text_classification_rnn
 
+# - caption: 工程师
+#   numbered: true
+#   chapters: 
+#   - file: notebook/engineer/
+  
+# - caption: 专家
+#   numbered: true
+#   chapters:
+#   - file: notebook/expert/sequence-components
+  
+# - caption: 大师
+#   numbered: true
+#   chapters:
+#   - file: notebook/great-master/
+  
