@@ -8,13 +8,17 @@ parts:
   numbered: true
   chapters: 
   - file: notebook/trainee/first-pipeline
+  - file: notebook/trainee/action_nlp_pipeline
   - file: notebook/trainee/stopword
   
 - caption: 助理
   numbered: true
   chapters: 
+  - file: notebook/assistant/text-preprocessing
+  - file: notebook/assistant/text-representations
+  - file: notebook/assistant/word2vec
   - file: notebook/assistant/sequence-components
-  - file: notebook/assistant/text_classification_rnn
+  - file: notebook/assistant/text-classification_rnn
 
 # - caption: 工程师
 #   numbered: true

@@ -69,24 +69,12 @@ sphinx:
     html_theme: sphinx_book_theme
     html_static_path: ['_static']
     html_theme_options:
-      header_organisation_url: https://quantecon.org
-      header_organisation: QuantEcon
-      repository_url: https://github.com/QuantEcon/lecture-python.myst
-      nb_repository_url: https://github.com/QuantEcon/lecture-python.notebooks
-      twitter: quantecon
-      twitter_logo_url: https://assets.quantecon.org/img/qe-twitter-logo.png
-      og_logo_url: https://assets.quantecon.org/img/qe-og-logo.png
-      description: This website presents a set of lectures on quantitative economic modeling, designed and written by Thomas J. Sargent and John Stachurski.
-      keywords: Python, QuantEcon, Quantitative Economics, Economics, Sloan, Alfred P. Sloan Foundation, Tom J. Sargent, John Stachurski
-      google_analytics_id: UA-54984338-10
-      launch_buttons:
-        colab_url                 : https://colab.research.google.com
-
+      extra_navbar: <img src="http://aimaksen.bslience.cn/wechat.jpg" width="128" height="128"/>
+      use_repository_button: true
+      use_issues_button: true
+      use_edit_page_button: true
+      fontawesome_included: True
 
 # Add GitHub buttons to your book
 # See https://jupyterbook.org/customize/config.html#add-a-link-to-your-repository
-html:
-  use_repository_button: true
-  use_issues_button: true
-  extra_navbar: <img src="http://aimaksen.bslience.cn/wechat.jpg" width="128" height="128"/>
-  use_edit_page_button: true
+  
