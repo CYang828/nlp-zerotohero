@@ -1,3 +1,7 @@
 .ipynb_checkpoints
 .DS_Store
 _build/*
+nohub.out
+dataset/*
+training_checkpoints
+one_step

@@ -7,31 +7,31 @@ parts:
 - caption: 学徒
   numbered: true
   chapters: 
-  - file: notebook/trainee/first-pipeline
-  - file: notebook/trainee/action_nlp_pipeline
-  - file: notebook/trainee/stopword
+  - file: book/1.trainee/1.use-case&chanllenge-you-dont-konw-in-nlp
+  - file: book/1.trainee/2.first-pipeline
+  - file: book/1.trainee/3.stopword
   
 - caption: 助理
   numbered: true
   chapters: 
-  - file: notebook/assistant/text-preprocessing
-  - file: notebook/assistant/text-representations
-  - file: notebook/assistant/word2vec
-  - file: notebook/assistant/sequence-components
-  - file: notebook/assistant/text-classification_rnn
+  - file: book/2.assistant/text-preprocessing
+  - file: book/2.assistant/text-representations
+  - file: book/2.assistant/word2vec
+  - file: book/2.assistant/sequence-components
+  - file: book/2.assistant/text-classification_rnn
 
-# - caption: 工程师
-#   numbered: true
-#   chapters: 
-#   - file: notebook/engineer/
+- caption: 工程师
+  numbered: true
+  chapters: 
+  - file: book/3.engineer/
   
 # - caption: 专家
 #   numbered: true
 #   chapters:
-#   - file: notebook/expert/sequence-components
+#   - file: book/expert/sequence-components
   
 # - caption: 大师
 #   numbered: true
 #   chapters:
-#   - file: notebook/great-master/
+#   - file: book/great-master/
   
