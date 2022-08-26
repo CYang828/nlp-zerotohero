@@ -9,7 +9,7 @@ parts:
   chapters: 
   - file: book/1.trainee/1.use-case&chanllenge-you-dont-konw-in-nlp
   - file: book/1.trainee/2.first-pipeline
-  - file: book/1.trainee/3.stopword
+  - file: book/1.trainee/3.sentiment-analyst
   
 - caption: 助理
   numbered: true
@@ -20,10 +20,10 @@ parts:
   - file: book/2.assistant/sequence-components
   - file: book/2.assistant/text-classification_rnn
 
-- caption: 工程师
-  numbered: true
-  chapters: 
-  - file: book/3.engineer/
+# - caption: 工程师
+#   numbered: true
+#   chapters: 
+#   - file: book/3.engineer/
   
 # - caption: 专家
 #   numbered: true

@@ -42,7 +42,7 @@ repository:
 
 # More detail https://jupyterbook.org/en/stable/customize/config.html?highlight=powered%20by#configuration-defaults
 sphinx:
-  extra_extensions: [sphinx_tabs.tabs, sphinx_multitoc_numbering, sphinxext.rediraffe, sphinx_tojupyter, sphinxcontrib.youtube, sphinx.ext.todo, sphinx_exercise, sphinx_togglebutton, sphinxcontrib.bibtex]
+  extra_extensions: [sphinx_jupyterbook_latex, sphinx_tabs.tabs, sphinx_multitoc_numbering, sphinxext.rediraffe, sphinx_tojupyter, sphinxcontrib.youtube, sphinx.ext.todo, sphinx_exercise, sphinx_togglebutton, sphinxcontrib.bibtex]
   config:
     language: zh
     nb_render_priority:

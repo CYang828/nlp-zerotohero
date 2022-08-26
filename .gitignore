@@ -5,3 +5,4 @@ nohub.out
 dataset/*
 training_checkpoints
 one_step
+*.csv
