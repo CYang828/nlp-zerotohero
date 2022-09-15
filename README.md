@@ -9,7 +9,7 @@
 
 [访问网站浏览](http://nlp-zerotohero.bslience.cn/intro.html)
 
-## 交互式代码练习
+## 交互式学习
 
 1. 配置自然语言处理交互式开发环境
 
