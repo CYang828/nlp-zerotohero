@@ -6,3 +6,4 @@ dataset/*
 training_checkpoints
 one_step
 *.csv
+pytorch-sentiment-analysis/*
