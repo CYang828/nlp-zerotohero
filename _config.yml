@@ -4,7 +4,7 @@ title: 《NLP 从零到专家》
 author: 张春阳
 logo: _static/logo.png
 copyright: "2022, CYang, CC-BY-SA 4.0 (materials) & BSD (code)" 
-
+exclude_patterns: [_build, Thumbs.db, .DS_Store, "**.ipynb_checkpoints", "pytorch-sentiment-analysis", "exercise"]
 
 parse:
   myst_enable_extensions:

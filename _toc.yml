@@ -7,31 +7,46 @@ parts:
 - caption: 学徒
   numbered: true
   chapters: 
-  - file: book/1.trainee/1.use-case&chanllenge-you-dont-konw-in-nlp
-  - file: book/1.trainee/2.first-pipeline
-  - file: book/1.trainee/3.sentiment-analyst
+  - file: 1.trainee/1.use-case&chanllenge-you-dont-konw-in-nlp
+  - file: 1.trainee/2.first-pipeline
+  - file: 1.trainee/3.sentiment-analyst
   
 - caption: 助理
   numbered: true
   chapters: 
-  - file: book/2.assistant/text-preprocessing
-  - file: book/2.assistant/text-representations
-  - file: book/2.assistant/word2vec
-  - file: book/2.assistant/sequence-components
-  - file: book/2.assistant/text-classification_rnn
+  - file: 2.assistant/text-preprocessing/index
+    sections: 
+    - file: 2.assistant/text-preprocessing/stopword
+
+  - file: 2.assistant/deeplearning/index
+    sections:
+    - file: 2.assistant/deeplearning/sequence-components
+    - file: 2.assistant/deeplearning/text-classification-rnn
+
+  - file: 2.assistant/text-representation/index
+    sections:
+    - file: 2.assistant/text-representation/text-representations
+    - file: 2.assistant/text-representation/word2vec/word2vec
+    - file: 2.assistant/text-representation/word2vec/whatlies
+    - file: 2.assistant/text-representation/fasttext/hw-pytorch-fasttext-sentiment-analysis-scratch
+    - file: 2.assistant/text-representation/fasttext/facebook-fasttext-sentiment-analysis
+    - file: 2.assistant/text-representation/textcnn/pytorch-textCNN-sentence-classification-scratch
+    - file: 2.assistant/text-representation/textcnn/tf-textCNN-sentence-classification-scratch
+    - file: 2.assistant/text-representation/textcnn/hw_pytorch-textCNN-sentiment-analysis-scratch
+
 
 # - caption: 工程师
 #   numbered: true
 #   chapters: 
-#   - file: book/3.engineer/
+#   - file: 3.engineer/
   
 # - caption: 专家
 #   numbered: true
 #   chapters:
-#   - file: book/expert/sequence-components
+#   - file: expert/sequence-components
   
 # - caption: 大师
 #   numbered: true
 #   chapters:
-#   - file: book/great-master/
+#   - file: great-master/
   
