@@ -1,4 +1,4 @@
-## nlp-zerotohero
+# nlp-zerotohero
 
 <p align="center"><img src="assets/nlp-zerotohero.png" /></p>
 
@@ -6,99 +6,46 @@
 
 
 ## 快速开始
-```bash
 
+[访问网站浏览](http://nlp-zerotohero.bslience.cn/intro.html)。
+
+## 交互式代码练习
+
+1. 配置自然语言处理交互式开发环境
+
+-  GPU 版本
+```bash
+docker run -d \
+    -p 8080:8080 \
+    --name "ml-workspace" \
+    -v "<nlp-zerotohero文件夹路径>:/workspace" \
+    --env AUTHENTICATE_VIA_JUPYTER="<密码>" \
+    --shm-size 512m \
+    --restart always \
+    --gpus all \
+    mltooling/ml-workspace-gpu:0.13.2
 ```
 
+-  无 GPU 版本
+```bash
+docker run -d \
+    -p 8080:8080 \
+    --name "ml-workspace" \
+    -v "<nlp-zerotohero文件夹路径>:/workspace" \
+    --env AUTHENTICATE_VIA_JUPYTER="<密码>" \
+    --shm-size 512m \
+    --restart always \
+    --gpus all \
+    mltooling/ml-workspace:0.13.2
+```
 
-## 学习路径
-
-#### 0. 一些查缺补漏的准备
-
-我建议你可以从第一部分开始学习，碰到不会的地方再回来补充基础这些相关的知识
-
-- 0-1. [你需要知道的 Python](python-all-you-need)
-- 0-2. [统计学](statistics-soft-way)
-- 0-3. [科学计算](computer-science)
-- 0-4. [机器学习](machine-learning)
-
-#### 1. 自然语言处理的魅力
-
-了解 NLP 能够解决什么样的问题，并且简单的看看它的发展历程，最后再来动手做一个简单的 NLP 任务
-
-- 1-1. [你不知道的自然语言处理应用场景和挑战]()
-- 1-2. [NLP的发展-你要知道的历史]()
-- 1-3. [给今日头条的新闻自动分类]()
-
-#### 2. 用好工具包，处理自然语言任务
-
-介绍常用的 NLP 软件包，让大家能够快速的使用这些软件包解决问题
-
-- 2-1. [从多种不同的数据源中加载文本数据]()
-- 2-2. [使用正则表达式]()
-- 2-3. [使用各种工具包对文本做预处理]()
-- 2-4. [探索并分析文本数据]()
-- 2-5. [从文本数据中抽取信息]()
-- 2-6. [项目：使用抽取出来的文本信息，创建一个文本分类的任务]()
-
-#### 3. 传统自然语言处理核心方法
-
-介绍传统的自然语言处理的核心方法，传统的方法虽然应用的时间已经有很长的时间，但是这些都是经典中的经典。在很多场景中，都能帮助你更好的处理任务
-
-- 3-1. [抽取语言学特征]()
-    - 使用 Spacy 做词性标注（POS）
-    - 使用 Spacy 做命名实体识别（NER）
-    - 依赖分析
-- 3-2. [在向量空间中的文本表示]()
-    - 词袋（bag of word）
-    - 词向量
-- 3-3. [语言模型]()
-- 3-4. [信息抽取]()
-
-#### 4. 深度学习
-
-深度学习作为现代的自然语言处理方法基础，是我们必须学习的环节，这里我们会聊聊跟自然语言处理相关的深度学习的必要基础
-
-- 4-1. [神经网络]()
-- 4-2. [优化算法]()
-- 4-3. [循环神经网络（RNN）和 LSTM]()
-- 4-4. [Tensorflow](tensorflow)
-
-
-#### 5. 现代自然语言处理的核心方法
-
-- 5-1. [transformer-all-you-need]()
-
-
-- 5-2. 
-
-
-
-#### 6. 文本分类(Text Classification)
-
-
-
-#### 7. 文本摘要
-
-
-
-#### 8. 阅读理解
-
-
-
-#### 9. 对话机器人
-
-
-
-#### 10. 强化学习
-
-
-
+2. 打开 <host>:8080，进入到交互式 notebook。
+3. 按照字母和书籍顺序配合学习。
 
 
 ## Author
 
-    - 张春阳 @BSlience
-    - 知乎 @张春阳
+    - 张春阳 @春阳CYang
+    - 知乎 @春阳CYang
     - 作者邮箱：zhangchunyang_pri@126.com
 
