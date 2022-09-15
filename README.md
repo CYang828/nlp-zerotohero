@@ -7,7 +7,7 @@
 
 ## 快速开始
 
-[访问网站浏览](http://nlp-zerotohero.bslience.cn/intro.html)。
+[访问网站浏览](http://nlp-zerotohero.bslience.cn/intro.html)
 
 ## 交互式代码练习
 
@@ -42,6 +42,12 @@ docker run -d \
 2. 打开 <host>:8080，进入到交互式 notebook。
 3. 按照字母和书籍顺序配合学习。
 
+
+**如果觉得有帮助，希望能给我个星星⭐️**
+
+<p align="center">
+    <img src="http://aimaksen.bslience.cn/qrcode_cyang.jpg" />
+</p>
 
 ## Author
 
